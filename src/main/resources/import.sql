@@ -5,10 +5,10 @@
 -- insert into myentity (id, field) values(3, 'field-3');
 -- alter sequence myentity_seq restart with 4;
 
-insert into usuario (nome, login, senha, perfil) values('Elon Musk', 'musk', '123456', 1);
-insert into usuario (nome, login, senha, perfil) values('Lionel Messi', 'messi', '123455', 1);
-insert into usuario (nome, login, senha, perfil) values('Neymar Jr', 'neymar', '123444', 1);
-insert into usuario (nome, login, senha, perfil) values('Ronaldinho Gaucho', 'ronaldinho', '123666', 2);
+insert into usuario (nome, login, senha, perfil) values('Elon Musk', 'musk', 'O2JdqlPMBBKPaus+zYDOx/D6Ol9IZk9UFD95DcsTQLBD4euH4P9Sh1OrL4c1l4vLPkYjGgxrMFFUy09ouL7vDA==', 1);
+insert into usuario (nome, login, senha, perfil) values('Lionel Messi', 'messi', 'O2JdqlPMBBKPaus+zYDOx/D6Ol9IZk9UFD95DcsTQLBD4euH4P9Sh1OrL4c1l4vLPkYjGgxrMFFUy09ouL7vDA==', 1);
+insert into usuario (nome, login, senha, perfil) values('Neymar Jr', 'neymar', 'O2JdqlPMBBKPaus+zYDOx/D6Ol9IZk9UFD95DcsTQLBD4euH4P9Sh1OrL4c1l4vLPkYjGgxrMFFUy09ouL7vDA==', 1);
+insert into usuario (nome, login, senha, perfil) values('Ronaldinho Gaucho', 'ronaldinho', 'O2JdqlPMBBKPaus+zYDOx/D6Ol9IZk9UFD95DcsTQLBD4euH4P9Sh1OrL4c1l4vLPkYjGgxrMFFUy09ouL7vDA==', 2);
 
 insert into telefone (codigoArea, numero) values('63', '9999-9999');
 insert into telefone (codigoArea, numero) values('62', '8888-8888');
