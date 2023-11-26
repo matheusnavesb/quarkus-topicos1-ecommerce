@@ -11,7 +11,8 @@ public record ProdutoDTO(
     String descricao,
     Integer idCategoria,
     Double preco,
-    Integer estoque
+    Integer estoque,
+    String nomeImagem
 ) {
     
 }

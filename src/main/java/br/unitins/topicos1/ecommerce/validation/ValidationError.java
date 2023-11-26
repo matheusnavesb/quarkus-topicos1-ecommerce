@@ -1,6 +1,6 @@
 package br.unitins.topicos1.ecommerce.validation;
 
-import br.unitins.topicos1.ecommerce.application.Error;
+import br.unitins.topicos1.ecommerce.util.Error;
 
 import java.util.ArrayList;
 import java.util.List;

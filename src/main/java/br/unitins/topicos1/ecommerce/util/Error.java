@@ -1,8 +1,6 @@
-package br.unitins.topicos1.ecommerce.application;
+package br.unitins.topicos1.ecommerce.util;
 
-/*
 public class Error {
-    
     private String code;
     private String message;
 
@@ -26,4 +24,4 @@ public class Error {
     public void setMessage(String message) {
         this.message = message;
     }
-}*/
+}
