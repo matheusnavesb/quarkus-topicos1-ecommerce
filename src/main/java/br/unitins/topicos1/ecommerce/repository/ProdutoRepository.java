@@ -1,5 +1,5 @@
 package br.unitins.topicos1.ecommerce.repository;
-
+/*
 import br.unitins.topicos1.ecommerce.model.Produto;
 import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
@@ -13,4 +13,4 @@ public class ProdutoRepository implements PanacheRepository<Produto> {
             return null;
         return find("UPPER(nome) LIKE ?1 ", "%" + nome.toUpperCase() + "%");
     }
-}
+}*/

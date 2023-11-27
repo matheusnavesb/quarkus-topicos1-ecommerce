@@ -1,5 +1,5 @@
 package br.unitins.topicos1.ecommerce.dto;
-
+/*
 import br.unitins.topicos1.ecommerce.model.Categoria;
 import br.unitins.topicos1.ecommerce.model.Produto;
 
@@ -24,4 +24,4 @@ public record ProdutoResponseDTO(
             produto.getNomeImagem()
         );
     }
-}
+}*/

@@ -31,6 +31,11 @@ public class CategoryResource {
     private static final Logger LOG = Logger.getLogger(CategoryResource.class);
 
     @GET
+    public Response findAll() {
+        return Response.ok(categoryService.findByAll()).build();
+    }
+
+    @GET
     @Path("/{id}")
     public CategoryResponseDTO findById(@PathParam("id") Long id) {
         return categoryService.findById(id);

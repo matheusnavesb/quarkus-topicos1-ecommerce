@@ -1,5 +1,6 @@
 package br.unitins.topicos1.ecommerce.model;
 
+/*
 import jakarta.persistence.Entity;
 
 @Entity
@@ -67,4 +68,4 @@ public class Produto extends DefaultEntity {
     }
 
     
-}
+}*/

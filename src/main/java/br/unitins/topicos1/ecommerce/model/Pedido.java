@@ -19,10 +19,13 @@ public class Pedido extends DefaultEntity {
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
-     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "pedido", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "pedido", fetch = FetchType.LAZY)
     private List<ItemPedido> itens;
 
     private Double totalPedido;
+
+    //@Enumerated(EnumType.ORDINAL)
+    private Pagamento pagamento;
 
     public LocalDateTime getDataHoraPedido() {
         return dataHoraPedido;
@@ -54,6 +57,14 @@ public class Pedido extends DefaultEntity {
 
     public void setTotalPedido(Double totalPedido) {
         this.totalPedido = totalPedido;
+    }
+
+    public Pagamento getPagamento() {
+        return pagamento;
+    }
+
+    public void setPagamento(Pagamento pagamento) {
+        this.pagamento = pagamento;
     }
 
     

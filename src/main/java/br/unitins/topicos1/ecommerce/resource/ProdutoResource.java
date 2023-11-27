@@ -1,5 +1,5 @@
 package br.unitins.topicos1.ecommerce.resource;
-
+/*
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
@@ -63,4 +63,4 @@ public class ProdutoResource {
     public Response findByNome(@PathParam("nome") String nome) {
         return Response.ok(service.findByNome(nome)).build();
     }
-}
+}*/

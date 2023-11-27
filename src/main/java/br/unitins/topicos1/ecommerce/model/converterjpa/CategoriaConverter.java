@@ -1,5 +1,5 @@
 package br.unitins.topicos1.ecommerce.model.converterjpa;
-
+/*
 import br.unitins.topicos1.ecommerce.model.Categoria;
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
@@ -17,4 +17,4 @@ public class CategoriaConverter implements AttributeConverter<Categoria, Integer
         return Categoria.valueOf(id);
     }
     
-}
+}*/

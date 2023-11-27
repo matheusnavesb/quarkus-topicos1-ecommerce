@@ -1,5 +1,7 @@
 package br.unitins.topicos1.ecommerce.service;
 
+import java.util.List;
+
 import br.unitins.topicos1.ecommerce.dto.CategoryDTO;
 import br.unitins.topicos1.ecommerce.dto.CategoryResponseDTO;
 import br.unitins.topicos1.ecommerce.model.Category;
@@ -52,6 +54,12 @@ public class CategoryServiceImpl implements CategoryService{
     @Transactional
     public void delete(Long id) {
         categoryRepository.deleteById(id);
+    }
+
+    @Override
+    public List<CategoryResponseDTO> findByAll() {
+        return categoryRepository.listAll().stream()
+            .map(e -> CategoryResponseDTO.valueOf(e)).toList();
     }
     
 }

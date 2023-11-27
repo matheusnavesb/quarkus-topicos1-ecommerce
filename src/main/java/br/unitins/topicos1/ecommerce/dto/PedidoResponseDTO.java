@@ -3,6 +3,7 @@ package br.unitins.topicos1.ecommerce.dto;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import br.unitins.topicos1.ecommerce.model.Pagamento;
 import br.unitins.topicos1.ecommerce.model.Pedido;
 
 public record PedidoResponseDTO(
@@ -11,7 +12,8 @@ public record PedidoResponseDTO(
     LocalDateTime dataHora,
     UsuarioResponseDTO usuario,
     Double totalPedido,
-    List<ItemPedidoResponseDTO> itens
+    List<ItemPedidoResponseDTO> itens,
+    Pagamento pagamento
 
 ) {
     public static PedidoResponseDTO valueOf(Pedido pedido){
@@ -20,7 +22,8 @@ public record PedidoResponseDTO(
             pedido.getDataHoraPedido(),
             UsuarioResponseDTO.valueOf(pedido.getUsuario()),
             pedido.getTotalPedido(),
-            ItemPedidoResponseDTO.valueOf(pedido.getItens()));
+            ItemPedidoResponseDTO.valueOf(pedido.getItens()), 
+            pedido.getPagamento());
     }
 } 
     

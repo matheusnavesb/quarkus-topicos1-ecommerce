@@ -1,5 +1,5 @@
 package br.unitins.topicos1.ecommerce.service;
-
+/*
 import java.util.List;
 
 import br.unitins.topicos1.ecommerce.dto.ProdutoDTO;
@@ -19,4 +19,4 @@ public interface ProdutoService {
     List<ProdutoResponseDTO> findAll();
 
     List<ProdutoResponseDTO> findByNome(String nome);
-} 
+} */

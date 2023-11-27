@@ -1,5 +1,5 @@
 package br.unitins.topicos1.ecommerce.dto;
-
+/*
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -15,4 +15,4 @@ public record ProdutoDTO(
     String nomeImagem
 ) {
     
-}
+}*/
