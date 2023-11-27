@@ -9,7 +9,7 @@ public record ProductDTO(
     @Size(max = 60, message = "O campo nome deve possuir no máximo 60 caracteres.")
     String nome,
     String descricao,
-    Integer idCategory,
+    Long idCategory,
     Double preco,
     Integer estoque,
     String nomeImagem

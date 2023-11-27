@@ -39,7 +39,7 @@ public class ProdutoResource {
         return Response.noContent().build();
     }
 
-     @DELETE
+    @DELETE
     @Transactional
     @Path("/{id}")
     public Response delete(@PathParam("id") Long id) {

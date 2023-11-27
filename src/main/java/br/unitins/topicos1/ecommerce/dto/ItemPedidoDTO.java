@@ -4,7 +4,9 @@ public record ItemPedidoDTO(
 
     Integer quantidade,
     Double preco,
-    Long idProduto
+    //Long idProduto
+    Long idProduct
+
 ) {
     
 }

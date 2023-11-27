@@ -10,10 +10,15 @@ public class ItemPedido extends DefaultEntity {
     private Integer quantidade;
     private Double preco;
 
-
+    /*
     @ManyToOne
     @JoinColumn(name="id_produto")
     private Produto produto;
+    */
+
+    @ManyToOne
+    @JoinColumn(name="id_produto")
+    private Product product;
 
     @ManyToOne
     @JoinColumn(name="id_pedido")
@@ -35,6 +40,7 @@ public class ItemPedido extends DefaultEntity {
         this.preco = preco;
     }
 
+    /*
     public Produto getProduto() {
         return produto;
     }
@@ -42,6 +48,9 @@ public class ItemPedido extends DefaultEntity {
     public void setProduto(Produto produto) {
         this.produto = produto;
     }
+    */
+
+    
 
     public Pedido getPedido() {
         return pedido;
@@ -49,6 +58,14 @@ public class ItemPedido extends DefaultEntity {
 
     public void setPedido(Pedido pedido) {
         this.pedido = pedido;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     

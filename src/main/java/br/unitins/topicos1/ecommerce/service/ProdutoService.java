@@ -8,7 +8,6 @@ import jakarta.validation.Valid;
 
 public interface ProdutoService {
 
-    
     ProdutoResponseDTO insert(@Valid ProdutoDTO dto);
     
     ProdutoResponseDTO update(Long id, ProdutoDTO dto);

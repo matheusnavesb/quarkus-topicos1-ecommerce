@@ -1,6 +1,6 @@
 package br.unitins.topicos1.ecommerce.dto;
 
-import br.unitins.topicos1.ecommerce.model.Category;
+//import br.unitins.topicos1.ecommerce.model.Category;
 import br.unitins.topicos1.ecommerce.model.Product;
 
 
@@ -9,7 +9,7 @@ public record ProductResponseDTO(
     Long id,
     String nome,
     String descricao,
-    Category category,
+    CategoryResponseDTO category,
     Double preco,
     Integer estoque,
     String nomeImagem
@@ -20,7 +20,8 @@ public record ProductResponseDTO(
             product.getId(), 
             product.getNome(),
             product.getDescricao(),
-            product.getCategory(),
+            CategoryResponseDTO.valueOf(product.getCategory()), 
+            //product.getCategory(),
             product.getPreco(),
             product.getEstoque(),
             product.getNomeImagem()

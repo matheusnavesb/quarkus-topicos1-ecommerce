@@ -9,18 +9,24 @@ import br.unitins.topicos1.ecommerce.dto.PedidoDTO;
 import br.unitins.topicos1.ecommerce.dto.PedidoResponseDTO;
 import br.unitins.topicos1.ecommerce.model.ItemPedido;
 import br.unitins.topicos1.ecommerce.model.Pedido;
-import br.unitins.topicos1.ecommerce.model.Produto;
+import br.unitins.topicos1.ecommerce.model.Product;
+//import br.unitins.topicos1.ecommerce.model.Produto;
 import br.unitins.topicos1.ecommerce.repository.PedidoRepository;
-import br.unitins.topicos1.ecommerce.repository.ProdutoRepository;
+import br.unitins.topicos1.ecommerce.repository.ProductRepository;
+//import br.unitins.topicos1.ecommerce.repository.ProdutoRepository;
 import br.unitins.topicos1.ecommerce.repository.UsuarioRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 
 @ApplicationScoped
 public class PedidoServiceImpl implements PedidoService{
 
+    //@Inject
+    //ProdutoRepository produtoRepository;
+
     @Inject
-    ProdutoRepository produtoRepository;
+    ProductRepository produtoRepository;
 
     @Inject
     UsuarioRepository usuarioRepository;
@@ -30,6 +36,7 @@ public class PedidoServiceImpl implements PedidoService{
 
 
     @Override
+    @Transactional
     public PedidoResponseDTO insert(PedidoDTO dto, String login) {
         Pedido pedido = new Pedido();
         pedido.setDataHoraPedido(LocalDateTime.now());
@@ -48,11 +55,15 @@ public class PedidoServiceImpl implements PedidoService{
             item.setPreco(itemDto.preco());
             item.setQuantidade(itemDto.quantidade());
             item.setPedido(pedido);
-            Produto produto = produtoRepository.findById(itemDto.idProduto());
-            item.setProduto(produto);
+
+            //Produto produto = produtoRepository.findById(itemDto.idProduto());
+            Product product = produtoRepository.findById(itemDto.idProduct());
+            item.setProduct(product);
 
             // atualizado o estoque
-            produto.setEstoque(produto.getEstoque() - item.getQuantidade());
+            //produto.setEstoque(produto.getEstoque() - item.getQuantidade());
+
+            product.setEstoque(product.getEstoque() - item.getQuantidade());
 
             pedido.getItens().add(item);
         }
