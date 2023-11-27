@@ -33,5 +33,18 @@ insert into produto (nome, descricao, categoria, preco, estoque, nomeImagem) val
 insert into produto (nome, descricao, categoria, preco, estoque, nomeImagem) values('PRODUTO 10', 'DESCRICAO DO PRODUTO 10', 5, 69.0, 100, 'IMAGEM PRODUTO 10');
 
 
+insert into category (category, version) values('CATEGORY 1', 0);
+insert into category (category, version) values('CATEGORY 2', 0);
+insert into category (category, version) values('CATEGORY 3', 0);
+insert into category (category, version) values('CATEGORY 4', 0);
+insert into category (category, version) values('CATEGORY 5', 0);
+
+insert into product (nome, descricao, id_category, preco, estoque, nomeImagem) values('PRODUCT 1', 'DESCRICAO DO PRODUTO 1', 1, 199.0, 100, 'IMAGEM PRODUTO 1');
+insert into product (nome, descricao, id_category, preco, estoque, nomeImagem) values('PRODUCT 2', 'DESCRICAO DO PRODUTO 2', 2, 199.0, 100, 'IMAGEM PRODUTO 2');
+insert into product (nome, descricao, id_category, preco, estoque, nomeImagem) values('PRODUCT 3', 'DESCRICAO DO PRODUTO 3', 3, 199.0, 100, 'IMAGEM PRODUTO 3');
+insert into product (nome, descricao, id_category, preco, estoque, nomeImagem) values('PRODUCT 4', 'DESCRICAO DO PRODUTO 4', 4, 199.0, 100, 'IMAGEM PRODUTO 4');
+insert into product (nome, descricao, id_category, preco, estoque, nomeImagem) values('PRODUCT 5', 'DESCRICAO DO PRODUTO 5', 5, 199.0, 100, 'IMAGEM PRODUTO 5');
+
+
 
 
