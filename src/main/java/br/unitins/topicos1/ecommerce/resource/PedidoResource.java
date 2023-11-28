@@ -32,7 +32,7 @@ public class PedidoResource {
 
 
     @POST
-    @RolesAllowed({"User"})
+    @RolesAllowed({"User", "Admin"})
     public Response insert(PedidoDTO dto) {
 
         String login = jwt.getSubject();

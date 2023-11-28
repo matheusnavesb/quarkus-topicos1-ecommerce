@@ -9,7 +9,12 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 
 import org.junit.jupiter.api.Test;
 
+//import br.unitins.topicos1.ecommerce.dto.CategoryDTO;
+//import br.unitins.topicos1.ecommerce.dto.CategoryResponseDTO;
+//import br.unitins.topicos1.ecommerce.dto.CategoryResponseDTO;
 import br.unitins.topicos1.ecommerce.dto.ProductDTO;
+import br.unitins.topicos1.ecommerce.dto.ProductResponseDTO;
+import br.unitins.topicos1.ecommerce.service.CategoryService;
 import br.unitins.topicos1.ecommerce.service.ProductService;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
@@ -20,6 +25,9 @@ public class ProductResourceTest {
     
     @Inject
     ProductService productService;
+
+    @Inject
+    CategoryService categoryService;
 
     @Test
     public void testFindAll() {
@@ -51,6 +59,28 @@ public class ProductResourceTest {
             "id", notNullValue(),
          "nome",is("Produto Insert"),
          "descricao",is("Descricao produto insert"));
+    }
+
+    @Test
+    public void testUpdate() {
+
+        //CategoryDTO category = new CategoryDTO("CATEGORY 1");
+
+        ProductDTO productDTO = new ProductDTO("mechanic", "description", (long)1, 299.00, 100, "nomeImagem");
+
+        // inserindo uma product
+        ProductResponseDTO productTest = productService.insert(productDTO);
+
+        Long id = productTest.id();
+
+        ProductDTO dtoUpdate = new ProductDTO("MECHANIC 2.0", "description", (long)1, 399.00, 50, "nomeImagem");
+
+        given()
+            .contentType(ContentType.JSON)
+            .body(dtoUpdate)
+            .when().put("/products/"+ id)
+            .then()
+            .statusCode(200);
     }
 
 }

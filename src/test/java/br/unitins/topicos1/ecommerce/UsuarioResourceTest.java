@@ -6,8 +6,7 @@ import jakarta.inject.Inject;
 
 import org.junit.jupiter.api.Test;
 
-
-
+import br.unitins.topicos1.ecommerce.dto.EnderecoDTO;
 import br.unitins.topicos1.ecommerce.dto.TelefoneDTO;
 import br.unitins.topicos1.ecommerce.dto.UsuarioDTO;
 import br.unitins.topicos1.ecommerce.dto.UsuarioResponseDTO;
@@ -38,12 +37,16 @@ public class UsuarioResourceTest {
     public void testInsert(){
         List<TelefoneDTO> telefones = new ArrayList<TelefoneDTO>();
         telefones.add(new TelefoneDTO("63","5555-5555"));
+        List<EnderecoDTO> enderecos = new ArrayList<EnderecoDTO>();
+        enderecos.add(new EnderecoDTO("rua 1", "numero1", "cidade 1", "estado 1", "123456789"));
+
         UsuarioDTO dto = new UsuarioDTO(
             "Joao Insert",
             "joaozinho",
             "333",
             2, 
-            telefones);
+            telefones,
+            enderecos);
 
         given()
         .contentType(ContentType.JSON)
@@ -64,12 +67,16 @@ public class UsuarioResourceTest {
     public void testUpdate(){
         List<TelefoneDTO> telefones = new ArrayList<TelefoneDTO>();
         telefones.add(new TelefoneDTO("63","1111-1111"));
+        List<EnderecoDTO> enderecos = new ArrayList<EnderecoDTO>();
+        enderecos.add(new EnderecoDTO("rua 1", "numero1", "cidade 1", "estado 1", "123456789"));
+
         UsuarioDTO dto = new UsuarioDTO(
              "Ronaldo Fenomeno",
             "ronaldo",
             "333",
             2,
-            telefones);
+            telefones,
+            enderecos);
 
         UsuarioResponseDTO usuarioTest = usuarioService.insert(dto);
 
@@ -80,7 +87,7 @@ public class UsuarioResourceTest {
             "ronaldo",
             "345",
             1, 
-            telefones);
+            telefones, enderecos);
 
         given()
         .contentType(ContentType.JSON)

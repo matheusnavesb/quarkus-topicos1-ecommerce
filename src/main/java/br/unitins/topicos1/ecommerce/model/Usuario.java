@@ -34,6 +34,11 @@ public class Usuario extends DefaultEntity {
     @OneToMany(mappedBy = "usuario")
     private List<Pedido> pedidos = new ArrayList<>();
     
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JoinTable(name = "usuario_endereco", 
+        joinColumns = @JoinColumn(name = "id_usuario"),
+        inverseJoinColumns = @JoinColumn(name = "id_endereco"))
+    private List<Endereco> endereco;
 
     public String getNome() {
         return nome;
@@ -75,6 +80,20 @@ public class Usuario extends DefaultEntity {
         this.perfil = perfil;
     }
 
-    
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    public List<Endereco> getListaEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(List<Endereco> endereco) {
+        this.endereco = endereco;
+    }
     
 }

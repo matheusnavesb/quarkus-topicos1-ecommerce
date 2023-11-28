@@ -21,11 +21,17 @@ public class CategoryResourceTest {
     @Inject
     CategoryService categoryService;
 
+
+    @Test
+    public void testFindAll() {
+        given()
+          .when().get("/categories")
+          .then()
+             .statusCode(200);
+    }
+
     @Test
     public void testInsert(){
-        
-        //List<ProdutoDTO> produtos = new ArrayList<ProdutoDTO>();
-        //produtos.add(new ProdutoDTO("Produto 2", "Kit mecanica Gurgel", 999.99, 5));
 
         CategoryDTO dto = new CategoryDTO(
             "Baterias"
@@ -45,8 +51,6 @@ public class CategoryResourceTest {
 
     @Test
     public void testUpdate() {
-        //List<ProdutoDTO> produtos = new ArrayList<ProdutoDTO>();
-        //produtos.add(new ProdutoDTO("Produto 10", "Kit mecanica Fiat Escada", 1999.99, 3));
 
         CategoryDTO categoryDTO = new CategoryDTO("Baterias"); 
         

@@ -42,6 +42,7 @@ public class CategoryResource {
     }
 
     @POST
+    
     public Response insert(CategoryDTO dto) {
         LOG.infof("Inserindo uma categoria: %s", dto.category());
 

@@ -3,9 +3,12 @@ package br.unitins.topicos1.ecommerce.service;
 import java.util.ArrayList;
 import java.util.List;
 
+
+import br.unitins.topicos1.ecommerce.dto.EnderecoDTO;
 import br.unitins.topicos1.ecommerce.dto.TelefoneDTO;
 import br.unitins.topicos1.ecommerce.dto.UsuarioDTO;
 import br.unitins.topicos1.ecommerce.dto.UsuarioResponseDTO;
+import br.unitins.topicos1.ecommerce.model.Endereco;
 import br.unitins.topicos1.ecommerce.model.Perfil;
 import br.unitins.topicos1.ecommerce.model.Telefone;
 import br.unitins.topicos1.ecommerce.model.Usuario;
@@ -52,6 +55,19 @@ public class UsuarioServiceImpl implements UsuarioService{
             }
         }
 
+        if(dto.listaEndereco() != null && !dto.listaTelefone().isEmpty()){
+            novoUsuario.setEndereco(new ArrayList<Endereco>());
+            for(EnderecoDTO end : dto.listaEndereco()){
+                Endereco endereco = new Endereco();
+                endereco.setRua(end.rua());
+                endereco.setNumero(end.numero());
+                endereco.setCidade(end.cidade());
+                endereco.setEstado(end.estado());
+                endereco.setCep(end.cep());
+                novoUsuario.getListaEndereco().add(endereco);
+            }
+        }
+
         repository.persist(novoUsuario);
 
         return UsuarioResponseDTO.valueOf(novoUsuario);
@@ -74,6 +90,16 @@ public class UsuarioServiceImpl implements UsuarioService{
                     telefone.setNumero(tel.numero());
                     telefones.add(telefone);
         }
+            List<Endereco> enderecos = new ArrayList<>();
+                for(EnderecoDTO end : dto.listaEndereco()){
+                    Endereco endereco = new Endereco();
+                    endereco.setRua(end.rua());
+                    endereco.setNumero(end.numero());
+                    endereco.setCidade(end.cidade());
+                    endereco.setEstado(end.estado());
+                    endereco.setCep(end.cep());
+                    enderecos.add(endereco);
+                } 
 
         return UsuarioResponseDTO.valueOf(usuario);
     }
