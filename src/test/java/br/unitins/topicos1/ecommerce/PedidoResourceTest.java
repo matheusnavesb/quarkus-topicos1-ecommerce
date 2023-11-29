@@ -27,5 +27,4 @@ public class PedidoResourceTest {
              .statusCode(200);
     }
 
-
 }

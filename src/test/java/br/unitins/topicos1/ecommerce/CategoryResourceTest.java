@@ -12,6 +12,7 @@ import br.unitins.topicos1.ecommerce.dto.CategoryDTO;
 import br.unitins.topicos1.ecommerce.dto.CategoryResponseDTO;
 import br.unitins.topicos1.ecommerce.service.CategoryService;
 import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.test.security.TestSecurity;
 import io.restassured.http.ContentType;
 import jakarta.inject.Inject;
 
@@ -31,10 +32,11 @@ public class CategoryResourceTest {
     }
 
     @Test
+    @TestSecurity(authorizationEnabled = false)
     public void testInsert(){
 
         CategoryDTO dto = new CategoryDTO(
-            "Baterias"
+            "BATERIAS"
             );
 
         given()
@@ -45,11 +47,12 @@ public class CategoryResourceTest {
         .statusCode(201)
         .body(
             "id", notNullValue(),
-        "category", is("Baterias")
+        "category", is("BATERIAS")
         );
 }
 
     @Test
+    @TestSecurity(authorizationEnabled = false)
     public void testUpdate() {
 
         CategoryDTO categoryDTO = new CategoryDTO("Baterias"); 
@@ -59,7 +62,7 @@ public class CategoryResourceTest {
 
         Long id = categoryTest.id();
 
-        CategoryDTO dtoUpdate = new CategoryDTO("BATERIA ELETRIC CAR");
+        CategoryDTO dtoUpdate = new CategoryDTO("MOTOR ELETRICO");
 
         given()
             .contentType(ContentType.JSON)

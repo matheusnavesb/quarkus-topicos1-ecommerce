@@ -7,6 +7,7 @@ import br.unitins.topicos1.ecommerce.dto.ProductDTO;
 import br.unitins.topicos1.ecommerce.dto.ProductResponseDTO;
 //import br.unitins.topicos1.ecommerce.dto.ProdutoDTO;
 import br.unitins.topicos1.ecommerce.service.ProductService;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolationException;
@@ -33,6 +34,7 @@ public class ProductResource {
     private static final Logger LOG = Logger.getLogger(ProductResource.class);
 
     @POST
+    @RolesAllowed({"Admin"})
     public Response insert(ProductDTO dto) {
         LOG.infof("Inserindo um product: %s", dto.nome());
 
@@ -47,6 +49,7 @@ public class ProductResource {
     @PUT
     @Transactional
     @Path("/{id}")
+    @RolesAllowed({"Admin"})
     public Response update(ProductDTO dto, @PathParam("id") Long id) {
 
         try {
@@ -58,14 +61,12 @@ public class ProductResource {
             Result result = new Result(e.getConstraintViolations());
             return Response.status(Status.NOT_FOUND).entity(result).build();
         }
-
-        //productService.update(id, dto);
-        //return Response.noContent().build();
     }
 
     @DELETE
     @Transactional
     @Path("/{id}")
+    @RolesAllowed({"Admin"})
     public Response delete(@PathParam("id") Long id) {
         productService.delete(id);
         return Response.noContent().build();
