@@ -44,6 +44,7 @@ public class UsuarioResourceTest {
             "Joao Insert",
             "joaozinho",
             "333",
+            "123456789",
             2, 
             telefones,
             enderecos);
@@ -74,6 +75,7 @@ public class UsuarioResourceTest {
              "Ronaldo Fenomeno",
             "ronaldo",
             "333",
+            "123456789",
             2,
             telefones,
             enderecos);
@@ -86,6 +88,7 @@ public class UsuarioResourceTest {
              "Ronaldo Fenomeno",
             "ronaldo",
             "345",
+            "123456789",
             1, 
             telefones, enderecos);
 

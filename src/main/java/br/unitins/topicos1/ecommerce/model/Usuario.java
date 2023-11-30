@@ -10,16 +10,24 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 
 @Entity
 public class Usuario extends DefaultEntity {
     
+    @NotBlank(message = "O nome deve ser informado")
     private String nome;
-
+    
+    @NotBlank(message = "O campo nome não pode ser nulo.")
     private String login;
 
+    @NotBlank(message = "O campo nome não pode ser nulo.")
     private String senha;
+
+    @Pattern(regexp = "[\\d]{1,3}\\.[\\d]{3}\\.[\\d]{3}\\-[\\d]{2}", message = "CPF inválido")
+    private String cpf;
 
     //@Enumerated(EnumType.ORDINAL)
     private Perfil perfil;
@@ -38,7 +46,7 @@ public class Usuario extends DefaultEntity {
     @JoinTable(name = "usuario_endereco", 
         joinColumns = @JoinColumn(name = "id_usuario"),
         inverseJoinColumns = @JoinColumn(name = "id_endereco"))
-    private List<Endereco> endereco;
+    private List<Endereco> listaEndereco;
 
     public String getNome() {
         return nome;
@@ -88,12 +96,23 @@ public class Usuario extends DefaultEntity {
         this.pedidos = pedidos;
     }
 
-    public List<Endereco> getListaEndereco() {
-        return endereco;
+    
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setEndereco(List<Endereco> endereco) {
-        this.endereco = endereco;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
+
+    public List<Endereco> getListaEndereco() {
+        return listaEndereco;
+    }
+
+    public void setListaEndereco(List<Endereco> listaEndereco) {
+        this.listaEndereco = listaEndereco;
+    }
+
+
     
 }

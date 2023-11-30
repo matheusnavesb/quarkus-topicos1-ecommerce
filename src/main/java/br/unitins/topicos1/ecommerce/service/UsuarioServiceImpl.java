@@ -42,6 +42,7 @@ public class UsuarioServiceImpl implements UsuarioService{
         novoUsuario.setLogin(dto.login());
 
         novoUsuario.setSenha(hashService.getHashSenha(dto.senha()));
+        novoUsuario.setCpf(dto.cpf());
         novoUsuario.setPerfil(Perfil.valueOf(dto.idPerfil()));
 
         if (dto.listaTelefone() != null && 
@@ -56,7 +57,7 @@ public class UsuarioServiceImpl implements UsuarioService{
         }
 
         if(dto.listaEndereco() != null && !dto.listaTelefone().isEmpty()){
-            novoUsuario.setEndereco(new ArrayList<Endereco>());
+            novoUsuario.setListaEndereco(new ArrayList<Endereco>());
             for(EnderecoDTO end : dto.listaEndereco()){
                 Endereco endereco = new Endereco();
                 endereco.setRua(end.rua());
@@ -82,6 +83,7 @@ public class UsuarioServiceImpl implements UsuarioService{
             usuario.setNome(dto.nome());
             usuario.setLogin(dto.login());
             usuario.setSenha(dto.senha());
+            usuario.setCpf(dto.cpf());
     
             List<Telefone> telefones = new ArrayList<>();
                 for (TelefoneDTO tel : dto.listaTelefone()) {

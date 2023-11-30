@@ -17,6 +17,7 @@ import br.unitins.topicos1.ecommerce.dto.ProductResponseDTO;
 import br.unitins.topicos1.ecommerce.service.CategoryService;
 import br.unitins.topicos1.ecommerce.service.ProductService;
 import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.test.security.TestSecurity;
 import io.restassured.http.ContentType;
 import jakarta.inject.Inject;
 
@@ -38,6 +39,7 @@ public class ProductResourceTest {
     }
 
     @Test
+    @TestSecurity(authorizationEnabled = false)
     public void testInsert() {
 
         ProductDTO productDTO = new ProductDTO(
@@ -62,6 +64,7 @@ public class ProductResourceTest {
     }
 
     @Test
+    @TestSecurity(authorizationEnabled = false)
     public void testUpdate() {
 
         //CategoryDTO category = new CategoryDTO("CATEGORY 1");
